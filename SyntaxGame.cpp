@@ -13,9 +13,10 @@ void gotoxy(int x, int y){
 }
 
 void Mechanics(char name[100]){
+
    system("cls");
   
-    string mech = "You need to identify wether the syntax is right or wrong";
+   
 
         gotoxy(50,10);{
           cout << "Hello! " << name;
@@ -23,20 +24,21 @@ void Mechanics(char name[100]){
           gotoxy(48,12);{
           cout << "Tap the space button to continue! ";
         }
-  getch();
+
+    getch();
 
     //Mechanics of the Game   
+     string mech = "You need to identify whether the syntax is right or wrong";
      system("cls");
-    gotoxy(48,14);{
+      gotoxy(48,14);{
         
         for(int i = 0; mech[i] != '\0'; i++){
-         cout << mech[i];
-      if(mech[i] == ' '){
-        Sleep(200);
-      }
-     
-    }
-     getch();
+           cout << mech[i];
+         if(mech[i] == ' '){
+           Sleep(200);
+          } 
+       }
+      getch();
     }
 }
 
@@ -76,9 +78,9 @@ int main(){
    gotoxy(58, 15);{
     cout << "Enter your name: ";
    }
-  
+
   cin.get(name,100);
-   cin.ignore();//The cin. ignore() function is used which is used to ignore or clear one or more characters from the input buffer.
+   cin.ignore(); //The cin. ignore() function is used which is used to ignore or clear one or more characters from the input buffer.
 
    Mechanics(name);
 
