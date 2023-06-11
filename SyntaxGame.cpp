@@ -14,24 +14,66 @@ void gotoxy(int x, int y){
 
 void Mechanics(char name[100]){
    system("cls");
+  
+    string mech = "You need to identify wether the syntax is right or wrong";
 
-   gotoxy(60,10);{
-    
-    cout << "Hello " << name;
-   }
-    gotoxy(50,11);{
-    cout << "To play it properly here are the Mechanics: ";
-   }
+        gotoxy(50,10);{
+          cout << "Hello! " << name;
+        }
+          gotoxy(48,12);{
+          cout << "Tap the space button to continue! ";
+        }
+  getch();
+
+    //Mechanics of the Game   
+     system("cls");
+    gotoxy(48,14);{
+        
+        for(int i = 0; mech[i] != '\0'; i++){
+         cout << mech[i];
+      if(mech[i] == ' '){
+        Sleep(200);
+      }
+     
+    }
+     getch();
+    }
 }
 
 char name[100];
 int main(){
  system("cls");
   
-  gotoxy(60,10);{
+  /*left side*/  for(int i = 9; i<12;i++){
+                    gotoxy(57,i);{
+                    cout << "*";
+                     }
+                    }
+  /*right side*/  for(int i = 9; i<12;i++){
+                    gotoxy(92,i);{
+                    cout << "*";
+                      }
+                    }
+   /*bottom side*/ for(int i = 57; i<93;i++){
+                    gotoxy(i,12);{
+                    cout << "*";
+                      }
+                    }
+  /*top side*/     for(int i = 57; i<93;i++){
+                    gotoxy(i,8);{
+                    cout << "*";
+                      }
+                    }
+ 
+  gotoxy(68,9);{
     system("Color F0");
-  
-    cout << "Welcome to Fix the Syntax Game";
+    
+    cout << "Welcome to";
+   }
+   gotoxy(62,10);{
+    system("Color F0");
+    
+    cout << "Syntax Identification Game!";
    }
    gotoxy(58, 15);{
     cout << "Enter your name: ";
@@ -39,6 +81,7 @@ int main(){
   
    cin.get(name,100);
    cin.ignore();
+
    Mechanics(name);
 
   
