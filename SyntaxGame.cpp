@@ -27,10 +27,18 @@ void Mechanics(char name[100]){
 
     getch();
 
+    
     //Mechanics of the Game   
-     string mech = "You need to identify whether the syntax is right or wrong";
+     string mech = "Game Mechanics\n Choose your difficulty level (Easy, Medium, Hard) and identify whether the provided syntax is correct or incorrect. ";
+     string mech1 = "If incorrect, input the right syntax within 3 attempts. Earn points for each correct identification or input the right syntax. Good luck!";
      system("cls");
-      gotoxy(48,14);{
+    
+    gotoxy(40,7);{
+      cout << "Game Mechanics";
+    }
+
+
+    gotoxy(25,9);{
         
         for(int i = 0; mech[i] != '\0'; i++){
            cout << mech[i];
@@ -38,8 +46,21 @@ void Mechanics(char name[100]){
            Sleep(200);
           } 
        }
-      getch();
+     
     }
+   gotoxy(25,11);{
+        
+        for(int a = 0; mech1[a] != '\0'; a++){
+           cout << mech1[a];
+         if(mech1[a] == ' '){
+           Sleep(200);
+          } 
+       }
+     
+    }
+
+
+     getch();
 }
 
 char name[100];
