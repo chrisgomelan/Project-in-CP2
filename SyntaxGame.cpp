@@ -2,8 +2,8 @@
 #include<conio.h>
 #include<windows.h>
 #include <stdio.h>
-using namespace std;
-
+using namespace std; // kita mo to par?
+                   // omsim
 void gotoxy(int x, int y){
     COORD coord;
     coord.X = x;
@@ -71,16 +71,14 @@ int main(){
     cout << "Welcome to";
    }
    gotoxy(62,10);{
-    system("Color F0");
-    
     cout << "Syntax Identification Game!";
    }
    gotoxy(58, 15);{
     cout << "Enter your name: ";
    }
   
-   cin.get(name,100);
-   cin.ignore();
+  cin.get(name,100);
+   cin.ignore();//The cin. ignore() function is used which is used to ignore or clear one or more characters from the input buffer.
 
    Mechanics(name);
 
