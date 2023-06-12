@@ -68,10 +68,10 @@ void Mechanics(char name[100]){
     }
 
     //Tapping any button to continue
-     while (true) {
+     
     gotoxy(62,17);{    
       cout << "Tap any button to proceed in game....";
-    }
+    
      }
      getch();
 }
@@ -125,12 +125,32 @@ int main(){
 
   //Mechanics function call
   Mechanics(name); 
+  
+  
+int choice; // variable for choice of user's difficulty level
+
+// Difficulty Levels Menu
+gotoxy(62,8);
+  cout << "Select difficulty levels: "; 
+
+gotoxy(62,10); cout<<"1 - Easy";
+gotoxy(62,11); cout<<"2 - Medium";
+gotoxy(62,12); cout<<"3 - Hard";
+
+gotoxy(62,13); cout << "Enter you choice: ";
+cin>>choice;
+
+
+switch(choice){
+
+  case 1:
+  system("cls");
+  //easy
     
+   getch();
+  break;
   
-  
-
-
-
+}
  getch();
     return 0;
 }
