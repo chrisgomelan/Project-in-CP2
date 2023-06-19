@@ -2,12 +2,14 @@
 #include<conio.h>
 #include <string.h>
 using namespace std;
+
+
 struct SyntaxQuestion {
-    std::string syntax;
-    std::string answer;
+    string syntax;
+   string answer;
 };
 
-bool isCorrectSyntax(const std::string& userInput, const std::string& correctSyntax) {
+bool isCorrectSyntax(const string& userInput, const string& correctSyntax) {
     return (userInput == correctSyntax);
 }
 
@@ -30,29 +32,29 @@ int main() {
     int totalQuestions = sizeof(questions) / sizeof(questions[0]);
     int score = 0;
 
-    std::cout << "Welcome to the Syntax Identification Game!" << std::endl;
+    cout << "Welcome to the Syntax Identification Game!" << endl;
 
     for (int i = 0; i < totalQuestions; i++) {
-        std::cout << "Question " << (i + 1) << ": Identify the correct syntax." << std::endl;
-        std::cout << questions[i].syntax << std::endl;
+        cout << "Question " << (i + 1) << ": Identify the correct syntax." << endl;
+        cout << questions[i].syntax << endl;
 
-        std::string userInput;
-        std::cout << "Your answer:" << std::endl;
-        std::getline(std::cin, userInput);
+        string userInput;
+        cout << "Your answer:" << endl;
+        getline(cin, userInput);
 
         if (isCorrectSyntax(userInput, questions[i].answer)) {
-            std::cout << "Correct syntax!" << std::endl;
+            cout << "Correct syntax!" << endl;
             score++;
         } else {
-            std::cout << "Incorrect syntax. The correct answer is:" << std::endl;
-            std::cout << questions[i].answer << std::endl;
+            cout << "Incorrect syntax. The correct answer is:" << endl;
+            cout << questions[i].answer << endl;
         }
 
-        std::cout << std::endl;
+        cout << endl;
     }
 
-    std::cout << "Game Over!" << std::endl;
-    std::cout << "Your score: " << score << " out of " << totalQuestions << std::endl;
+    cout << "Game Over!" << endl;
+    cout << "Your score: " << score << " out of " << totalQuestions << endl;
 
     return 0;
 }

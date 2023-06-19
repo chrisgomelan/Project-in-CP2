@@ -3,6 +3,9 @@
 #include<windows.h>
 #include <stdio.h>
 #include<dos.h>
+#include <cstdlib>
+#include <ctime>
+#include <string>
 using namespace std; 
               
 
@@ -40,7 +43,7 @@ void Mechanics(char name[100]){
 
 
    //First Mechanic w/ type writing logic
-    gotoxy(19,9);{
+    gotoxy(17,9);{
         
         for(int i = 0; mech[i] != '\0'; i++){
            cout << mech[i];
@@ -52,7 +55,7 @@ void Mechanics(char name[100]){
     }
   
   //Second Mechanic w/ type writing logic
-   gotoxy(19,11);{
+   gotoxy(17,11);{
         
         for(int a = 0; mech1[a] != '\0'; a++){
            cout << mech1[a];
@@ -126,10 +129,11 @@ int main(){
   //Mechanics function call
   Mechanics(name); 
   
-  
+   getch();
 int choice; // variable for choice of user's difficulty level
 
 // Difficulty Levels Menu
+ system("cls");
 gotoxy(62,8);
   cout << "Select difficulty levels: "; 
 
@@ -140,13 +144,119 @@ gotoxy(62,12); cout<<"3 - Hard";
 gotoxy(62,13); cout << "Enter you choice: ";
 cin>>choice;
 
-
+ getch();
 switch(choice){
 
   case 1:
   system("cls");
-  //easy
+   srand(time(NULL));
+
+    string syntax[13] = {
+        "cout<<variable_name;",
+        "cin>>variable;",
+        "dataType variableName = value;",
+        "const type name = value;",
+        "// comment",
+        "/* comment */", 
+        "dataType arrayName[arraySize];",// 1D
+        "dataType arrayName[rowSize][columnSize];", //2D
+        "dataType arrayName[size1][size2]...[sizeN];", //Multi
+        "dataType *identifier;", //pointers
+        "class_name object_name;", // object
+        "using namespace std;", //
+        "any_statement ;" //semicolon
+
+    };
+
+    string syntaxWithErrors[13] = {
+        "cout<<<variable_name;",
+        "cin<<variable;",
+        "dataType variableName == value;",
+        "const type name = value;", // correct
+        "// comment //",
+        "/ comment /",
+        "dataType arraySize [arrayName];",
+        "dataType arrayName [columnSize][rowSize];",
+        "dataType arrayName [size1][size2]...[sizeN];",//correct
+        "dataType *identifier;", //correct
+        "class_name object_name;" //correct
+        "using namespace sti;",
+        "any_statement ;" //correct
+
     
+    };
+
+   // int num = 1;
+   for(int i = 1; i<=6; i++){
+    system("cls");
+    string random;
+    int score = 0;
+   
+    int errorIndex = (rand() % 10);
+    random = syntaxWithErrors[errorIndex];
+  
+    cout << "Mode: Easy" << endl;
+    cout << "Test " << i << endl;
+    cout << "\nIdentify the correct syntax:\n";
+     
+    cout << random << "\n";
+
+   char userAnswer[100];   
+   string correctAnswer = syntax[errorIndex];
+   string choice1;
+ 
+   cout<<"Is the syntax is right? (Yes/No): ";
+   cin >> choice1;
+
+   if(choice1 == "yes"||"Yes"||"YES"){
+      
+      if (random == correctAnswer)
+    {
+        cout << "\nCongratulations! Your answer is correct.\n";
+        score++;
+         getch();
+    }
+
+    else {
+      cout<<"Your answer is incorrect please input the right syntax" << endl;
+      cout << "\nYour answer: ";
+          cin.ignore();
+       cin.get(userAnswer,100);
+
+    }
+   }
+  
+    // string userAnswer;
+   else { //  else if(choice1 ==  "no"||"No"||"NO"){ 
+      cout<<"Please input the right syntax" << endl;
+      cout << "\nYour answer: ";
+
+       cin.ignore();
+      cin.get(userAnswer,100);
+    }
+   
+  
+
+   
+ 
+    if (userAnswer == correctAnswer)
+    {
+        cout << "\nCongratulations! Your answer is correct.\n";
+        score++;
+         getch();
+    }
+    else
+    {
+        cout << "\nSorry, your answer is incorrect. \n\nThe correct syntax is: \n";
+        cout << correctAnswer << "\n";
+        getch();
+    }
+
+    score += score; 
+    
+    cout<<"Your score is: "<<score<<"/6"<<endl;
+
+   }
    getch();
   break;
   
